@@ -40,7 +40,7 @@ function SlideCover({ animKey }: { animKey: AnimKey }) {
       >
         «Как витамины
         <br />
-        влияют на человека»
+        влияют на человека?»
       </h1>
       <div
         className="mt-8 w-16 h-px bg-[var(--gold)] opacity-0 animate-fade-in"
