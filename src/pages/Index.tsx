@@ -57,50 +57,45 @@ function SlideCover({ animKey }: { animKey: AnimKey }) {
 }
 
 function SlideOverview({ animKey }: { animKey: AnimKey }) {
-  const items = [
+  const tasks = [
     {
       num: "01",
-      title: "Определение",
-      text: "Органические вещества, необходимые в малых количествах для нормального обмена веществ",
+      text: "Систематизировать классификацию витаминов, определить их пищевые источники и описать последствия дефицита.",
     },
     {
       num: "02",
-      title: "Значение",
-      text: "Участвуют в ферментативных реакциях, регуляции метаболизма и защите клеток",
+      text: "Выяснить, каким образом витамины влияют на физическое здоровье, способность переносить стресс и психологическое благополучие.",
     },
     {
       num: "03",
-      title: "Источники",
-      text: "Преимущественно поступают с пищей; некоторые частично синтезируются в организме",
+      text: "Сформулировать правила сбалансированного питания, адресованные именно подросткам.",
     },
   ];
   return (
     <div key={animKey} className="flex flex-col justify-center h-full px-8 md:px-16">
       <div
-        className="mb-10 opacity-0 animate-slide-down"
+        className="mb-8 opacity-0 animate-slide-down"
         style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
       >
         <span className="font-body text-[10px] tracking-[0.35em] uppercase text-[var(--gold)]">Слайд 02</span>
         <h2 className="font-display text-[clamp(2rem,6vw,4rem)] font-light leading-tight text-[var(--ink)] mt-1">
-          Что такое витамины?
+          Цели и задачи
         </h2>
+        <p className="font-body text-sm font-light text-[var(--muted)] mt-3 max-w-2xl leading-relaxed">
+          <span className="font-medium text-[var(--ink)]">Цель работы</span> — изучить роль витаминов в организме и на этой основе предложить практические рекомендации по питанию для подростков.
+        </p>
       </div>
       <div className="space-y-0">
-        {items.map((item, i) => (
+        {tasks.map((item, i) => (
           <div
             key={item.num}
-            className="flex gap-8 items-start py-6 border-t border-[var(--line)] opacity-0 animate-slide-left"
-            style={{ animationDelay: `${0.1 + i * 0.12}s`, animationFillMode: "forwards" }}
+            className="flex gap-8 items-start py-5 border-t border-[var(--line)] opacity-0 animate-slide-left"
+            style={{ animationDelay: `${0.15 + i * 0.12}s`, animationFillMode: "forwards" }}
           >
             <span className="font-display text-4xl font-light text-[var(--gold)] leading-none shrink-0 w-12 pt-0.5">
               {item.num}
             </span>
-            <div>
-              <h3 className="font-body text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink)] mb-1.5">
-                {item.title}
-              </h3>
-              <p className="font-body text-sm font-light text-[var(--muted)] leading-relaxed">{item.text}</p>
-            </div>
+            <p className="font-body text-sm font-light text-[var(--muted)] leading-relaxed pt-1">{item.text}</p>
           </div>
         ))}
         <div className="border-t border-[var(--line)]" />
