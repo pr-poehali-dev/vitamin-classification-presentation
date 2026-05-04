@@ -72,34 +72,45 @@ function SlideOverview({ animKey }: { animKey: AnimKey }) {
     },
   ];
   return (
-    <div key={animKey} className="flex flex-col justify-center h-full px-8 md:px-16">
+    <div key={animKey} className="flex flex-col justify-center h-full px-8 md:px-16 gap-6">
+
       <div
-        className="mb-8 opacity-0 animate-slide-down"
+        className="flex gap-10 items-start opacity-0 animate-slide-down"
         style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
       >
-        <span className="font-body text-[10px] tracking-[0.35em] uppercase text-[var(--gold)]">Слайд 02</span>
-        <h2 className="font-display text-[clamp(2rem,6vw,4rem)] font-light leading-tight text-[var(--ink)] mt-1">
-          Цели и задачи
+        <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-none text-[var(--ink)] shrink-0 w-36">
+          Цель
         </h2>
-        <p className="font-body text-sm font-light text-[var(--muted)] mt-3 max-w-2xl leading-relaxed">
-          <span className="font-medium text-[var(--ink)]">Цель работы</span> — изучить роль витаминов в организме и на этой основе предложить практические рекомендации по питанию для подростков.
+        <p className="font-body text-sm font-light text-[var(--muted)] leading-relaxed pt-2 border-l border-[var(--line)] pl-8">
+          Изучить роль витаминов в организме и на этой основе предложить практические рекомендации по питанию для подростков.
         </p>
       </div>
-      <div className="space-y-0">
-        {tasks.map((item, i) => (
-          <div
-            key={item.num}
-            className="flex gap-8 items-start py-5 border-t border-[var(--line)] opacity-0 animate-slide-left"
-            style={{ animationDelay: `${0.15 + i * 0.12}s`, animationFillMode: "forwards" }}
-          >
-            <span className="font-display text-4xl font-light text-[var(--gold)] leading-none shrink-0 w-12 pt-0.5">
-              {item.num}
-            </span>
-            <p className="font-body text-sm font-light text-[var(--muted)] leading-relaxed pt-1">{item.text}</p>
-          </div>
-        ))}
-        <div className="border-t border-[var(--line)]" />
+
+      <div className="border-t border-[var(--line)]" />
+
+      <div
+        className="flex gap-10 items-start opacity-0 animate-slide-up"
+        style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
+      >
+        <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-none text-[var(--ink)] shrink-0 w-36">
+          Задачи
+        </h2>
+        <div className="border-l border-[var(--line)] pl-8 flex flex-col gap-4 pt-2">
+          {tasks.map((item, i) => (
+            <div
+              key={item.num}
+              className="flex gap-4 items-start opacity-0 animate-slide-left"
+              style={{ animationDelay: `${0.3 + i * 0.1}s`, animationFillMode: "forwards" }}
+            >
+              <span className="font-display text-2xl font-light text-[var(--gold)] leading-none shrink-0 w-6">
+                {i + 1}.
+              </span>
+              <p className="font-body text-sm font-light text-[var(--muted)] leading-relaxed">{item.text}</p>
+            </div>
+          ))}
+        </div>
       </div>
+
     </div>
   );
 }
