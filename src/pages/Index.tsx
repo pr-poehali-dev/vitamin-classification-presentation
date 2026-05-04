@@ -5,6 +5,7 @@ const SLIDES = [
   { id: 1, label: "Введение", type: "cover" },
   { id: 2, label: "Обзор", type: "overview" },
   { id: 3, label: "Классификация", type: "classification" },
+  { id: 4, label: "Источники", type: "sources" },
 ];
 
 type AnimKey = number;
@@ -180,6 +181,61 @@ function SlideClassification({ animKey }: { animKey: AnimKey }) {
   );
 }
 
+function SlideSources({ animKey }: { animKey: AnimKey }) {
+  const rows = [
+    { vitamin: "A", name: "Ретинол", sources: "Печень, рыбий жир, яйца; провитамин β-каротин — морковь, тыква, шпинат" },
+    { vitamin: "D", name: "Кальциферол", sources: "Вырабатывается кожей под УФ-светом; жирная рыба (лосось, сельдь, скумбрия)" },
+    { vitamin: "E", name: "Токоферол", sources: "Растительные масла, орехи, семена (подсолнечник, миндаль, фундук)" },
+    { vitamin: "K", name: "Менахинон", sources: "Зелёные листовые овощи (шпинат, брокколи, салат); синтез кишечной микрофлорой" },
+    { vitamin: "B", name: "Группа B", sources: "Цельнозерновые крупы, бобовые, печень, мясо, молочные продукты; B₁₂ — только животная пища" },
+    { vitamin: "C", name: "Аскорбиновая к-та", sources: "Шиповник, смородина, сладкий перец, цитрусовые, капуста, свежие ягоды и фрукты" },
+  ];
+
+  return (
+    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
+      <div className="w-full max-w-3xl">
+        <div
+          className="mb-6 opacity-0 animate-slide-down"
+          style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
+        >
+          <span className="font-body text-[10px] tracking-[0.35em] uppercase text-[var(--gold)]">Слайд 04</span>
+          <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-light leading-tight text-[var(--ink)] mt-1">
+            Источники витаминов
+          </h2>
+        </div>
+
+        <div
+          className="border border-[var(--line)] overflow-hidden opacity-0 animate-scale-in"
+          style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
+        >
+          <table className="w-full font-body">
+            <thead>
+              <tr className="bg-[var(--ink)] text-white">
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase w-20">Витамин</th>
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase w-40">Название</th>
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase">Где присутствует</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, i) => (
+                <tr
+                  key={row.vitamin}
+                  className={`border-t border-[var(--line)] opacity-0 animate-slide-left ${i % 2 === 0 ? "bg-white" : "bg-[#fafaf8]"}`}
+                  style={{ animationDelay: `${0.2 + i * 0.07}s`, animationFillMode: "forwards" }}
+                >
+                  <td className="px-5 py-3 font-display text-2xl font-light text-[var(--gold)]">{row.vitamin}</td>
+                  <td className="px-5 py-3 font-body text-xs font-medium text-[var(--ink)]">{row.name}</td>
+                  <td className="px-5 py-3 font-body text-xs font-light text-[var(--muted)] leading-relaxed">{row.sources}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Index() {
   const { current, key, go, prev, next } = useSlide();
 
@@ -206,6 +262,8 @@ export default function Index() {
         return <SlideOverview animKey={key} />;
       case 2:
         return <SlideClassification animKey={key} />;
+      case 3:
+        return <SlideSources animKey={key} />;
       default:
         return null;
     }
