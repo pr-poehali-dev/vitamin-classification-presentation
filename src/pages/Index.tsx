@@ -7,6 +7,7 @@ const SLIDES = [
   { id: 3, label: "Классификация", type: "classification" },
   { id: 4, label: "Источники", type: "sources" },
   { id: 5, label: "Дефицит", type: "deficiency" },
+  { id: 6, label: "Здоровье", type: "health" },
 ];
 
 type AnimKey = number;
@@ -315,6 +316,82 @@ function SlideDeficiency({ animKey }: { animKey: AnimKey }) {
   );
 }
 
+function SlideHealth({ animKey }: { animKey: AnimKey }) {
+  const rows = [
+    {
+      vitamin: "B₉, B₁₂",
+      effect: "Кроветворение и синтез ДНК",
+      desc: "Необходимы для деления клеток костного мозга. Недостаток ведёт к мегалобластической анемии.",
+    },
+    {
+      vitamin: "C",
+      effect: "Сосуды и иммунитет",
+      desc: "Укрепляет сосудистую стенку, ускоряет регенерацию тканей, активирует иммунные клетки.",
+    },
+    {
+      vitamin: "A",
+      effect: "Зрение и эпителий",
+      desc: "Входит в состав зрительного пигмента родопсина, поддерживает сумеречное зрение и целостность эпителиальных барьеров.",
+    },
+    {
+      vitamin: "D + K",
+      effect: "Кости и кальций",
+      desc: "D усиливает всасывание кальция в кишечнике, K направляет его в костную ткань и препятствует кальцификации сосудов.",
+    },
+    {
+      vitamin: "E + C",
+      effect: "Антиоксидантная защита",
+      desc: "Защищают клеточные мембраны от окислительного стресса, замедляя процессы старения.",
+    },
+  ];
+
+  return (
+    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
+      <div className="w-full max-w-3xl flex flex-col gap-5">
+
+        <div
+          className="text-center opacity-0 animate-slide-down"
+          style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
+        >
+          <span className="font-body text-[10px] tracking-[0.35em] uppercase text-[var(--gold)]">Слайд 06</span>
+          <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-light text-[var(--ink)] mt-1">
+            Влияние на физическое здоровье
+          </h2>
+        </div>
+
+        <div
+          className="border border-[var(--line)] overflow-hidden opacity-0 animate-scale-in"
+          style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
+        >
+          <table className="w-full font-body">
+            <thead>
+              <tr className="bg-[var(--ink)] text-white">
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase w-24">Витамин</th>
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase w-44">На что влияет</th>
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase">Механизм</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, i) => (
+                <tr
+                  key={row.vitamin}
+                  className={`border-t border-[var(--line)] opacity-0 animate-slide-left ${i % 2 === 0 ? "bg-white" : "bg-[#fafaf8]"}`}
+                  style={{ animationDelay: `${0.2 + i * 0.08}s`, animationFillMode: "forwards" }}
+                >
+                  <td className="px-5 py-3 font-display text-xl font-light text-[var(--gold)]">{row.vitamin}</td>
+                  <td className="px-5 py-3 font-body text-xs font-medium text-[var(--ink)]">{row.effect}</td>
+                  <td className="px-5 py-3 font-body text-xs font-light text-[var(--muted)] leading-relaxed">{row.desc}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 export default function Index() {
   const { current, key, go, prev, next } = useSlide();
 
@@ -345,6 +422,8 @@ export default function Index() {
         return <SlideSources animKey={key} />;
       case 4:
         return <SlideDeficiency animKey={key} />;
+      case 5:
+        return <SlideHealth animKey={key} />;
       default:
         return null;
     }
