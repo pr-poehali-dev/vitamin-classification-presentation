@@ -28,32 +28,22 @@ function useSlide() {
 function SlideCover({ animKey }: { animKey: AnimKey }) {
   return (
     <div key={animKey} className="flex flex-col justify-center items-center h-full text-center px-8">
-      <div
-        className="mb-6 opacity-0 animate-slide-down"
+      <p
+        className="font-body text-sm font-light tracking-wide text-[var(--muted)] opacity-0 animate-slide-down"
         style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
       >
-        <span className="font-body text-xs tracking-[0.3em] uppercase text-[var(--gold)] border border-[var(--gold)] px-4 py-1.5">
-          Витамины
-        </span>
-      </div>
+        Проект по биологии на тему
+      </p>
       <h1
-        className="font-display text-[clamp(3.5rem,10vw,7rem)] font-light leading-[0.9] tracking-tight text-[var(--ink)] opacity-0 animate-slide-up"
-        style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
+        className="font-display text-[clamp(2rem,6vw,4.5rem)] font-light leading-tight tracking-tight text-[var(--ink)] mt-4 max-w-2xl opacity-0 animate-slide-up"
+        style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
       >
-        Витамины
-        <br />
-        <em className="italic font-light">и здоровье</em>
+        «Как витамины влияют на человека»
       </h1>
       <div
         className="mt-8 w-16 h-px bg-[var(--gold)] opacity-0 animate-fade-in"
-        style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
+        style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
       />
-      <p
-        className="mt-6 font-body text-sm font-light tracking-wide text-[var(--muted)] max-w-md opacity-0 animate-slide-up"
-        style={{ animationDelay: "0.45s", animationFillMode: "forwards" }}
-      >
-        Роль микронутриентов в обеспечении жизнедеятельности организма
-      </p>
     </div>
   );
 }
