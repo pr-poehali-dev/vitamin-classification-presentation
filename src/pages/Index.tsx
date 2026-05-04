@@ -142,12 +142,22 @@ function SlideClassification({ animKey }: { animKey: AnimKey }) {
       <div className="w-full max-w-2xl flex flex-col gap-2">
 
         <div
-          className="text-center mb-4 opacity-0 animate-slide-down"
+          className="opacity-0 animate-slide-down"
           style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
         >
-          <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)] font-light text-[var(--ink)]">
-            Витамины
+          <span className="font-body text-[10px] tracking-[0.35em] uppercase text-[var(--gold)]">Слайд 03</span>
+          <h2 className="font-display text-[clamp(1.8rem,4vw,3rem)] font-light text-[var(--ink)] mt-1">
+            Классификация витаминов
           </h2>
+        </div>
+
+        <div
+          className="text-center mb-2 opacity-0 animate-slide-down"
+          style={{ animationDelay: "0.12s", animationFillMode: "forwards" }}
+        >
+          <h3 className="font-display text-[clamp(2rem,6vw,4.5rem)] font-light text-[var(--ink)]">
+            Витамины
+          </h3>
         </div>
 
         <div className="grid grid-cols-3 gap-0">
