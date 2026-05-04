@@ -27,7 +27,7 @@ function useSlide() {
 
 function SlideCover({ animKey }: { animKey: AnimKey }) {
   return (
-    <div key={animKey} className="flex flex-col justify-center items-center h-full text-center px-8">
+    <div key={animKey} className="flex flex-col flex-1 justify-center items-center h-full text-center px-8">
       <p
         className="font-body text-sm font-light tracking-wide text-[var(--muted)] opacity-0 animate-slide-down"
         style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
@@ -318,7 +318,7 @@ export default function Index() {
         </span>
       </header>
 
-      <main className="flex-1 overflow-hidden">{renderSlide()}</main>
+      <main className="flex-1 overflow-hidden flex flex-col">{renderSlide()}</main>
 
       <footer className="flex items-center justify-between px-8 py-4 border-t border-[var(--line)] shrink-0">
         <div className="flex gap-2 items-center">
