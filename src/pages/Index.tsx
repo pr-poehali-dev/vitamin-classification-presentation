@@ -210,7 +210,7 @@ function SlideSources({ animKey }: { animKey: AnimKey }) {
     <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
       <div className="w-full max-w-3xl">
         <div
-          className="mb-6 opacity-0 animate-slide-down"
+          className="mb-6 text-center opacity-0 animate-slide-down"
           style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
         >
           <span className="font-body text-[10px] tracking-[0.35em] uppercase text-[var(--gold)]">Слайд 04</span>
@@ -427,9 +427,6 @@ function SlideStress({ animKey }: { animKey: AnimKey }) {
           <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-light text-[var(--ink)] mt-1">
             Влияние на уровень стресса
           </h2>
-          <p className="font-body text-xs font-light text-[var(--muted)] mt-2 max-w-2xl mx-auto leading-relaxed">
-            Стресс — неспецифическая адаптивная реакция организма. При стрессе надпочечники секретируют адреналин и кортизол, мобилизующие энергетические резервы.
-          </p>
         </div>
 
         <div
@@ -611,14 +608,14 @@ function SlideConclusion({ animKey }: { animKey: AnimKey }) {
           </p>
         </div>
 
-        <div className="w-12 h-px bg-[var(--line)] mx-auto opacity-0 animate-fade-in" style={{ animationDelay: "0.5s", animationFillMode: "forwards" }} />
-
-        <p
-          className="font-body text-xs text-[var(--muted)] opacity-0 animate-fade-in"
-          style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}
+        <div
+          className="opacity-0 animate-slide-up"
+          style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
         >
-          Подготовила: Павлова Варвара, 8 класс
-        </p>
+          <p className="font-body text-sm font-light text-[var(--muted)] leading-relaxed">
+            Наиболее надёжный путь обеспечения организма этими веществами — разнообразное и сбалансированное питание. Особое значение рациональный рацион приобретает в подростковом возрасте, когда закладывается фундамент здоровья на последующую жизнь.
+          </p>
+        </div>
 
       </div>
     </div>
