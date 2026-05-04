@@ -6,6 +6,7 @@ const SLIDES = [
   { id: 2, label: "Обзор", type: "overview" },
   { id: 3, label: "Классификация", type: "classification" },
   { id: 4, label: "Источники", type: "sources" },
+  { id: 5, label: "Дефицит", type: "deficiency" },
 ];
 
 type AnimKey = number;
@@ -243,6 +244,88 @@ function SlideSources({ animKey }: { animKey: AnimKey }) {
   );
 }
 
+function SlideDeficiency({ animKey }: { animKey: AnimKey }) {
+  const rows = [
+    {
+      vitamin: "C",
+      disease: "Цинга",
+      desc: "Нарушение синтеза коллагена: кровоточивость дёсен, ломкость сосудов, подкожные кровоизлияния, выпадение зубов. Без лечения — летальный исход.",
+    },
+    {
+      vitamin: "B₁",
+      disease: "Бери-бери",
+      desc: "Полиневриты, мышечная слабость, сердечная недостаточность. Поражало народы, питавшиеся полированным рисом.",
+    },
+    {
+      vitamin: "B₃",
+      disease: "Пеллагра",
+      desc: "Триада «трёх Д»: дерматит, диарея, деменция. Была распространена в регионах с однообразным кукурузным рационом.",
+    },
+    {
+      vitamin: "D",
+      disease: "Рахит",
+      desc: "У детей: размягчение и деформация костей, искривление конечностей, задержка прорезывания зубов.",
+    },
+  ];
+
+  return (
+    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
+      <div className="w-full max-w-3xl flex flex-col gap-5">
+
+        <div
+          className="text-center opacity-0 animate-slide-down"
+          style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
+        >
+          <span className="font-body text-[10px] tracking-[0.35em] uppercase text-[var(--gold)]">Слайд 05</span>
+          <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-light text-[var(--ink)] mt-1">
+            Последствия дефицита витаминов
+          </h2>
+        </div>
+
+        <div
+          className="border border-[var(--line)] overflow-hidden opacity-0 animate-scale-in"
+          style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
+        >
+          <table className="w-full font-body">
+            <thead>
+              <tr className="bg-[var(--ink)] text-white">
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase w-20">Витамин</th>
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase w-36">Заболевание</th>
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase">Проявления</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, i) => (
+                <tr
+                  key={row.vitamin}
+                  className={`border-t border-[var(--line)] opacity-0 animate-slide-left ${i % 2 === 0 ? "bg-white" : "bg-[#fafaf8]"}`}
+                  style={{ animationDelay: `${0.2 + i * 0.08}s`, animationFillMode: "forwards" }}
+                >
+                  <td className="px-5 py-3 font-display text-2xl font-light text-[var(--gold)]">{row.vitamin}</td>
+                  <td className="px-5 py-3 font-body text-xs font-medium text-[var(--ink)]">{row.disease}</td>
+                  <td className="px-5 py-3 font-body text-xs font-light text-[var(--muted)] leading-relaxed">{row.desc}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div
+          className="border-l-2 border-[var(--gold)] pl-4 opacity-0 animate-slide-up"
+          style={{ animationDelay: "0.55s", animationFillMode: "forwards" }}
+        >
+          <p className="font-body text-[11px] font-light text-[var(--muted)] leading-relaxed">
+            Сегодня выраженные авитаминозы редки, однако{" "}
+            <span className="font-medium text-[var(--ink)]">скрытые гиповитаминозы</span> остаются широко распространёнными —
+            хроническая усталость, частые инфекции, снижение работоспособности.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 export default function Index() {
   const { current, key, go, prev, next } = useSlide();
 
@@ -271,6 +354,8 @@ export default function Index() {
         return <SlideClassification animKey={key} />;
       case 3:
         return <SlideSources animKey={key} />;
+      case 4:
+        return <SlideDeficiency animKey={key} />;
       default:
         return null;
     }
