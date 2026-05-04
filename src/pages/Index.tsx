@@ -72,30 +72,30 @@ function SlideOverview({ animKey }: { animKey: AnimKey }) {
     },
   ];
   return (
-    <div key={animKey} className="flex flex-col justify-center h-full px-8 md:px-16 gap-6">
+    <div key={animKey} className="flex flex-col justify-center items-center h-full px-8 md:px-16 gap-6">
 
       <div
-        className="flex gap-10 items-start opacity-0 animate-slide-down"
+        className="flex gap-10 items-center opacity-0 animate-slide-down w-full max-w-2xl"
         style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
       >
         <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-none text-[var(--ink)] shrink-0 w-36">
           Цель:
         </h2>
-        <p className="font-body text-sm font-light text-[var(--muted)] leading-relaxed pt-2 border-l border-[var(--line)] pl-8">
+        <p className="font-body text-sm font-light text-[var(--muted)] leading-relaxed border-l border-[var(--line)] pl-8">
           Изучить роль витаминов в организме и на этой основе предложить практические рекомендации по питанию для подростков.
         </p>
       </div>
 
-      <div className="border-t border-[var(--line)]" />
+      <div className="border-t border-[var(--line)] w-full max-w-2xl" />
 
       <div
-        className="flex gap-10 items-start opacity-0 animate-slide-up"
+        className="flex gap-10 items-center opacity-0 animate-slide-up w-full max-w-2xl"
         style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
       >
-        <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-none text-[var(--ink)] shrink-0 w-36 self-center">
+        <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-none text-[var(--ink)] shrink-0 w-36">
           Задачи:
         </h2>
-        <div className="border-l border-[var(--line)] pl-8 flex flex-col gap-4 justify-center">
+        <div className="border-l border-[var(--line)] pl-8 flex flex-col gap-4">
           {tasks.map((item, i) => (
             <div
               key={item.num}
