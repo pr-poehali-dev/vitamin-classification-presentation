@@ -34,31 +34,43 @@ function useSlide() {
 
 function SlideCover({ animKey }: { animKey: AnimKey }) {
   return (
-    <div key={animKey} className="flex flex-col flex-1 justify-center items-center h-full text-center px-8">
-      <p
-        className="font-body text-sm font-light tracking-wide text-[var(--muted)] opacity-0 animate-slide-down"
-        style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
-      >
-        Проект по биологии на тему
-      </p>
-      <h1
-        className="font-display text-[clamp(2rem,6vw,4.5rem)] font-light leading-tight tracking-tight text-[var(--ink)] mt-4 max-w-2xl opacity-0 animate-slide-up"
-        style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
-      >
-        «Как витамины
-        <br />
-        влияют на человека?»
-      </h1>
+    <div key={animKey} className="flex flex-1 h-full">
+      <div className="flex flex-col justify-center items-center text-center px-8 md:px-16 flex-1">
+        <p
+          className="font-body text-sm font-light tracking-wide text-[var(--muted)] opacity-0 animate-slide-down"
+          style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
+        >
+          Проект по биологии на тему
+        </p>
+        <h1
+          className="font-display text-[clamp(2rem,5vw,4rem)] font-light leading-tight tracking-tight text-[var(--ink)] mt-4 max-w-xl opacity-0 animate-slide-up"
+          style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
+        >
+          «Как витамины
+          <br />
+          влияют на человека?»
+        </h1>
+        <div
+          className="mt-8 w-16 h-px bg-[var(--gold)] opacity-0 animate-fade-in"
+          style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
+        />
+        <p
+          className="mt-8 font-body text-sm font-light tracking-wide text-[var(--muted)] opacity-0 animate-slide-up"
+          style={{ animationDelay: "0.55s", animationFillMode: "forwards" }}
+        >
+          Подготовила: Павлова Варвара, 8 класс
+        </p>
+      </div>
       <div
-        className="mt-8 w-16 h-px bg-[var(--gold)] opacity-0 animate-fade-in"
-        style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
-      />
-      <p
-        className="mt-8 font-body text-sm font-light tracking-wide text-[var(--muted)] opacity-0 animate-slide-up"
-        style={{ animationDelay: "0.55s", animationFillMode: "forwards" }}
+        className="hidden md:block w-72 shrink-0 opacity-0 animate-fade-in"
+        style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
       >
-        Подготовила: Павлова Варвара, 8 класс
-      </p>
+        <img
+          src="https://cdn.poehali.dev/projects/560dfb54-db46-40ce-9572-f7a695a71487/files/a6a2f55f-4f1a-41fd-a90f-79b40c6ae719.jpg"
+          alt="Витамины"
+          className="w-full h-full object-cover opacity-80"
+        />
+      </div>
     </div>
   );
 }
@@ -79,8 +91,18 @@ function SlideOverview({ animKey }: { animKey: AnimKey }) {
     },
   ];
   return (
-    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
-      <div className="flex flex-col gap-6 w-full max-w-2xl">
+    <div key={animKey} className="flex items-center h-full">
+      <div
+        className="hidden md:block w-56 shrink-0 self-stretch opacity-0 animate-fade-in"
+        style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
+      >
+        <img
+          src="https://cdn.poehali.dev/projects/560dfb54-db46-40ce-9572-f7a695a71487/files/c698b809-2b95-4b20-9c03-f065946bf00b.jpg"
+          alt="Цель и задачи"
+          className="w-full h-full object-cover opacity-75"
+        />
+      </div>
+      <div className="flex flex-col gap-6 w-full max-w-2xl px-8 md:px-12">
 
         <div
           className="flex gap-10 items-center opacity-0 animate-slide-down"
@@ -144,8 +166,8 @@ function SlideClassification({ animKey }: { animKey: AnimKey }) {
   ];
 
   return (
-    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
-      <div className="w-full max-w-2xl flex flex-col gap-2">
+    <div key={animKey} className="flex items-center h-full">
+      <div className="w-full max-w-2xl flex flex-col gap-2 px-8 md:px-16">
 
         <div
           className="text-center opacity-0 animate-slide-down"
@@ -192,6 +214,16 @@ function SlideClassification({ animKey }: { animKey: AnimKey }) {
         </div>
 
       </div>
+      <div
+        className="hidden md:block w-56 shrink-0 self-stretch opacity-0 animate-fade-in"
+        style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
+      >
+        <img
+          src="https://cdn.poehali.dev/projects/560dfb54-db46-40ce-9572-f7a695a71487/files/15c167dd-ac40-4264-aea8-5abb2893bab5.jpg"
+          alt="Классификация витаминов"
+          className="w-full h-full object-cover opacity-75"
+        />
+      </div>
     </div>
   );
 }
@@ -207,8 +239,18 @@ function SlideSources({ animKey }: { animKey: AnimKey }) {
   ];
 
   return (
-    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
-      <div className="w-full max-w-3xl">
+    <div key={animKey} className="flex items-center h-full">
+      <div
+        className="hidden md:block w-48 shrink-0 self-stretch opacity-0 animate-fade-in"
+        style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
+      >
+        <img
+          src="https://cdn.poehali.dev/projects/560dfb54-db46-40ce-9572-f7a695a71487/files/5c830adb-04a8-4c61-96b4-6c7fc080c22c.jpg"
+          alt="Источники витаминов"
+          className="w-full h-full object-cover opacity-80"
+        />
+      </div>
+      <div className="w-full max-w-3xl px-8 md:px-12">
         <div
           className="mb-6 text-center opacity-0 animate-slide-down"
           style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
@@ -274,8 +316,8 @@ function SlideDeficiency({ animKey }: { animKey: AnimKey }) {
   ];
 
   return (
-    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
-      <div className="w-full max-w-3xl flex flex-col gap-5">
+    <div key={animKey} className="flex items-center h-full">
+      <div className="w-full max-w-3xl flex flex-col gap-5 px-8 md:px-16">
 
         <div
           className="text-center opacity-0 animate-slide-down"
@@ -316,6 +358,16 @@ function SlideDeficiency({ animKey }: { animKey: AnimKey }) {
         </div>
 
       </div>
+      <div
+        className="hidden md:block w-48 shrink-0 self-stretch opacity-0 animate-fade-in"
+        style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
+      >
+        <img
+          src="https://cdn.poehali.dev/projects/560dfb54-db46-40ce-9572-f7a695a71487/files/0291d807-4dca-4697-8378-dab5502b0067.jpg"
+          alt="Дефицит витаминов"
+          className="w-full h-full object-cover opacity-75"
+        />
+      </div>
     </div>
   );
 }
@@ -350,8 +402,18 @@ function SlideHealth({ animKey }: { animKey: AnimKey }) {
   ];
 
   return (
-    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
-      <div className="w-full max-w-3xl flex flex-col gap-5">
+    <div key={animKey} className="flex items-center h-full">
+      <div
+        className="hidden md:block w-48 shrink-0 self-stretch opacity-0 animate-fade-in"
+        style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
+      >
+        <img
+          src="https://cdn.poehali.dev/projects/560dfb54-db46-40ce-9572-f7a695a71487/files/da30912b-9a71-49bc-806a-a9b04543ae5f.jpg"
+          alt="Физическое здоровье"
+          className="w-full h-full object-cover opacity-80"
+        />
+      </div>
+      <div className="w-full max-w-3xl flex flex-col gap-5 px-8 md:px-12">
 
         <div
           className="text-center opacity-0 animate-slide-down"
@@ -416,8 +478,8 @@ function SlideStress({ animKey }: { animKey: AnimKey }) {
   ];
 
   return (
-    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
-      <div className="w-full max-w-3xl flex flex-col gap-5">
+    <div key={animKey} className="flex items-center h-full">
+      <div className="w-full max-w-3xl flex flex-col gap-5 px-8 md:px-16">
 
         <div
           className="text-center opacity-0 animate-slide-down"
@@ -458,6 +520,16 @@ function SlideStress({ animKey }: { animKey: AnimKey }) {
         </div>
 
       </div>
+      <div
+        className="hidden md:block w-48 shrink-0 self-stretch opacity-0 animate-fade-in"
+        style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
+      >
+        <img
+          src="https://cdn.poehali.dev/projects/560dfb54-db46-40ce-9572-f7a695a71487/files/1126bc3c-b5c0-4f48-9aa5-b1ad79d257a8.jpg"
+          alt="Стресс и витамины"
+          className="w-full h-full object-cover opacity-75"
+        />
+      </div>
     </div>
   );
 }
@@ -482,8 +554,18 @@ function SlidePsychology({ animKey }: { animKey: AnimKey }) {
   ];
 
   return (
-    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
-      <div className="w-full max-w-3xl flex flex-col gap-5">
+    <div key={animKey} className="flex items-center h-full">
+      <div
+        className="hidden md:block w-48 shrink-0 self-stretch opacity-0 animate-fade-in"
+        style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
+      >
+        <img
+          src="https://cdn.poehali.dev/projects/560dfb54-db46-40ce-9572-f7a695a71487/files/3afc2656-8340-425e-9163-ecfd70b16f6d.jpg"
+          alt="Психология и витамины"
+          className="w-full h-full object-cover opacity-80"
+        />
+      </div>
+      <div className="w-full max-w-3xl flex flex-col gap-5 px-8 md:px-12">
 
         <div
           className="text-center opacity-0 animate-slide-down"
@@ -539,8 +621,8 @@ function SlideTips({ animKey }: { animKey: AnimKey }) {
   ];
 
   return (
-    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
-      <div className="w-full max-w-2xl flex flex-col gap-6">
+    <div key={animKey} className="flex items-center h-full">
+      <div className="w-full max-w-2xl flex flex-col gap-6 px-8 md:px-16">
 
         <div
           className="text-center opacity-0 animate-slide-down"
@@ -569,14 +651,34 @@ function SlideTips({ animKey }: { animKey: AnimKey }) {
         </div>
 
       </div>
+      <div
+        className="hidden md:block w-56 shrink-0 self-stretch opacity-0 animate-fade-in"
+        style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
+      >
+        <img
+          src="https://cdn.poehali.dev/projects/560dfb54-db46-40ce-9572-f7a695a71487/files/bde11643-42b0-45b0-b3ff-43ded6669bd1.jpg"
+          alt="Здоровое питание для подростков"
+          className="w-full h-full object-cover opacity-80"
+        />
+      </div>
     </div>
   );
 }
 
 function SlideConclusion({ animKey }: { animKey: AnimKey }) {
   return (
-    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
-      <div className="w-full max-w-2xl flex flex-col gap-8 text-center">
+    <div key={animKey} className="flex items-center h-full">
+      <div
+        className="hidden md:block w-56 shrink-0 self-stretch opacity-0 animate-fade-in"
+        style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
+      >
+        <img
+          src="https://cdn.poehali.dev/projects/560dfb54-db46-40ce-9572-f7a695a71487/files/25ddf0bc-1de9-4944-bee8-5a042f560d58.jpg"
+          alt="Заключение"
+          className="w-full h-full object-cover opacity-80"
+        />
+      </div>
+      <div className="w-full max-w-2xl flex flex-col gap-8 text-center px-8 md:px-16">
 
         <div
           className="opacity-0 animate-slide-down"
