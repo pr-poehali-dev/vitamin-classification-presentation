@@ -8,6 +8,7 @@ const SLIDES = [
   { id: 4, label: "Источники", type: "sources" },
   { id: 5, label: "Дефицит", type: "deficiency" },
   { id: 6, label: "Здоровье", type: "health" },
+  { id: 7, label: "Стресс", type: "stress" },
 ];
 
 type AnimKey = number;
@@ -392,6 +393,75 @@ function SlideHealth({ animKey }: { animKey: AnimKey }) {
   );
 }
 
+function SlideStress({ animKey }: { animKey: AnimKey }) {
+  const rows = [
+    {
+      vitamin: "C, B₅",
+      effect: "Синтез гормонов стресса",
+      desc: "Необходимы для выработки адреналина и кортизола надпочечниками при мобилизации энергетических резервов.",
+    },
+    {
+      vitamin: "C, E",
+      effect: "Антиоксидантная защита",
+      desc: "Нейтрализуют свободные радикалы, накапливающиеся в клетках при стрессе, предотвращая окислительное повреждение тканей.",
+    },
+    {
+      vitamin: "B₁, B₆",
+      effect: "Нервная система",
+      desc: "Участвуют в проведении нервных импульсов и образовании тормозных медиаторов. Дефицит проявляется раздражительностью, тревожностью и нарушениями сна.",
+    },
+  ];
+
+  return (
+    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
+      <div className="w-full max-w-3xl flex flex-col gap-5">
+
+        <div
+          className="text-center opacity-0 animate-slide-down"
+          style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
+        >
+          <span className="font-body text-[10px] tracking-[0.35em] uppercase text-[var(--gold)]">Слайд 07</span>
+          <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-light text-[var(--ink)] mt-1">
+            Влияние на уровень стресса
+          </h2>
+          <p className="font-body text-xs font-light text-[var(--muted)] mt-2 max-w-2xl mx-auto leading-relaxed">
+            Стресс — неспецифическая адаптивная реакция организма. При стрессе надпочечники секретируют адреналин и кортизол, мобилизующие энергетические резервы.
+          </p>
+        </div>
+
+        <div
+          className="border border-[var(--line)] overflow-hidden opacity-0 animate-scale-in"
+          style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
+        >
+          <table className="w-full font-body">
+            <thead>
+              <tr className="bg-[var(--ink)] text-white">
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase w-24">Витамин</th>
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase w-52">Влияние</th>
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase">Механизм</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, i) => (
+                <tr
+                  key={row.vitamin}
+                  className={`border-t border-[var(--line)] opacity-0 animate-slide-left ${i % 2 === 0 ? "bg-white" : "bg-[#fafaf8]"}`}
+                  style={{ animationDelay: `${0.3 + i * 0.1}s`, animationFillMode: "forwards" }}
+                >
+                  <td className="px-5 py-3 font-display text-xl font-light text-[var(--gold)]">{row.vitamin}</td>
+                  <td className="px-5 py-3 font-body text-xs font-medium text-[var(--ink)]">{row.effect}</td>
+                  <td className="px-5 py-3 font-body text-xs font-light text-[var(--muted)] leading-relaxed">{row.desc}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 export default function Index() {
   const { current, key, go, prev, next } = useSlide();
 
@@ -424,6 +494,8 @@ export default function Index() {
         return <SlideDeficiency animKey={key} />;
       case 5:
         return <SlideHealth animKey={key} />;
+      case 6:
+        return <SlideStress animKey={key} />;
       default:
         return null;
     }
