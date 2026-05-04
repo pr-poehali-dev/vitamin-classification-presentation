@@ -33,7 +33,7 @@ function SlideCover({ animKey }: { animKey: AnimKey }) {
         style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
       >
         <span className="font-body text-xs tracking-[0.3em] uppercase text-[var(--gold)] border border-[var(--gold)] px-4 py-1.5">
-          Биохимия питания
+          Витамины
         </span>
       </div>
       <h1
@@ -299,7 +299,7 @@ export default function Index() {
             <div className="w-1.5 h-1.5 bg-[var(--gold)]" />
           </div>
           <span className="font-body text-[10px] tracking-[0.3em] uppercase text-[var(--muted)] font-medium">
-            Биохимия питания
+            Витамины
           </span>
         </div>
         <nav className="hidden md:flex items-center gap-1">
