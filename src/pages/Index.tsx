@@ -259,7 +259,7 @@ function SlideDeficiency({ animKey }: { animKey: AnimKey }) {
     {
       vitamin: "B₃",
       disease: "Пеллагра",
-      desc: "Триада «трёх Д»: дерматит, диарея, деменция. Была распространена в регионах с однообразным кукурузным рационом.",
+      desc: "Дерматит, диарея, деменция. Была распространена в регионах с однообразным кукурузным рационом.",
     },
     {
       vitamin: "D",
@@ -308,17 +308,6 @@ function SlideDeficiency({ animKey }: { animKey: AnimKey }) {
               ))}
             </tbody>
           </table>
-        </div>
-
-        <div
-          className="border-l-2 border-[var(--gold)] pl-4 opacity-0 animate-slide-up"
-          style={{ animationDelay: "0.55s", animationFillMode: "forwards" }}
-        >
-          <p className="font-body text-[11px] font-light text-[var(--muted)] leading-relaxed">
-            Сегодня выраженные авитаминозы редки, однако{" "}
-            <span className="font-medium text-[var(--ink)]">скрытые гиповитаминозы</span> остаются широко распространёнными —
-            хроническая усталость, частые инфекции, снижение работоспособности.
-          </p>
         </div>
 
       </div>
