@@ -48,7 +48,7 @@ function SlideCover({ animKey }: { animKey: AnimKey }) {
         className="mt-8 font-body text-sm font-light tracking-wide text-[var(--muted)] opacity-0 animate-slide-up"
         style={{ animationDelay: "0.55s", animationFillMode: "forwards" }}
       >
-        Подготовила: <span className="font-medium text-[var(--ink)]">Павлова Варвара</span>, 8 класс
+        Подготовила: Павлова Варвара, 8 класс
       </p>
     </div>
   );
