@@ -9,6 +9,7 @@ const SLIDES = [
   { id: 5, label: "Дефицит", type: "deficiency" },
   { id: 6, label: "Здоровье", type: "health" },
   { id: 7, label: "Стресс", type: "stress" },
+  { id: 8, label: "Психология", type: "psychology" },
 ];
 
 type AnimKey = number;
@@ -462,6 +463,72 @@ function SlideStress({ animKey }: { animKey: AnimKey }) {
   );
 }
 
+function SlidePsychology({ animKey }: { animKey: AnimKey }) {
+  const rows = [
+    {
+      vitamin: "B₆, B₉",
+      effect: "Серотонин и настроение",
+      desc: "Участвуют в синтезе серотонина — нейромедиатора благополучия. Нехватка снижает его выработку и способствует подавленным состояниям.",
+    },
+    {
+      vitamin: "B₁₂, B₉",
+      effect: "Память и концентрация",
+      desc: "Поддерживают миелиновые оболочки нервов и когнитивные функции. Дефицит проявляется ухудшением памяти, снижением концентрации и умственной утомляемостью.",
+    },
+    {
+      vitamin: "D",
+      effect: "Эмоциональный фон",
+      desc: "Рецепторы витамина D обнаружены в различных отделах мозга. Сезонный недостаток часто сопровождается апатией и сонливостью.",
+    },
+  ];
+
+  return (
+    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
+      <div className="w-full max-w-3xl flex flex-col gap-5">
+
+        <div
+          className="text-center opacity-0 animate-slide-down"
+          style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
+        >
+          <span className="font-body text-[10px] tracking-[0.35em] uppercase text-[var(--gold)]">Слайд 08</span>
+          <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-light text-[var(--ink)] mt-1">
+            Влияние на психологическую устойчивость
+          </h2>
+        </div>
+
+        <div
+          className="border border-[var(--line)] overflow-hidden opacity-0 animate-scale-in"
+          style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
+        >
+          <table className="w-full font-body">
+            <thead>
+              <tr className="bg-[var(--ink)] text-white">
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase w-24">Витамин</th>
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase w-52">Влияние</th>
+                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase">Механизм</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, i) => (
+                <tr
+                  key={row.vitamin}
+                  className={`border-t border-[var(--line)] opacity-0 animate-slide-left ${i % 2 === 0 ? "bg-white" : "bg-[#fafaf8]"}`}
+                  style={{ animationDelay: `${0.3 + i * 0.1}s`, animationFillMode: "forwards" }}
+                >
+                  <td className="px-5 py-3 font-display text-xl font-light text-[var(--gold)]">{row.vitamin}</td>
+                  <td className="px-5 py-3 font-body text-xs font-medium text-[var(--ink)]">{row.effect}</td>
+                  <td className="px-5 py-3 font-body text-xs font-light text-[var(--muted)] leading-relaxed">{row.desc}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 export default function Index() {
   const { current, key, go, prev, next } = useSlide();
 
@@ -496,6 +563,8 @@ export default function Index() {
         return <SlideHealth animKey={key} />;
       case 6:
         return <SlideStress animKey={key} />;
+      case 7:
+        return <SlidePsychology animKey={key} />;
       default:
         return null;
     }
