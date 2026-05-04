@@ -38,7 +38,9 @@ function SlideCover({ animKey }: { animKey: AnimKey }) {
         className="font-display text-[clamp(2rem,6vw,4.5rem)] font-light leading-tight tracking-tight text-[var(--ink)] mt-4 max-w-2xl opacity-0 animate-slide-up"
         style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
       >
-        «Как витамины влияют на человека»
+        «Как витамины
+        <br />
+        влияют на человека»
       </h1>
       <div
         className="mt-8 w-16 h-px bg-[var(--gold)] opacity-0 animate-fade-in"
