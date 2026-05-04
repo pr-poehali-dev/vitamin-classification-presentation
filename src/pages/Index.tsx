@@ -10,6 +10,8 @@ const SLIDES = [
   { id: 6, label: "Здоровье", type: "health" },
   { id: 7, label: "Стресс", type: "stress" },
   { id: 8, label: "Психология", type: "psychology" },
+  { id: 9, label: "Рекомендации", type: "tips" },
+  { id: 10, label: "Заключение", type: "conclusion" },
 ];
 
 type AnimKey = number;
@@ -529,6 +531,100 @@ function SlidePsychology({ animKey }: { animKey: AnimKey }) {
   );
 }
 
+function SlideTips({ animKey }: { animKey: AnimKey }) {
+  const tips = [
+    "Ежедневно — не менее 400–500 г разнообразных свежих овощей и фруктов.",
+    "Выбирать цельнозерновые крупы и хлеб как источники витаминов группы B.",
+    "Обязательно включать продукты животного происхождения (мясо, рыбу, яйца, молочные изделия) — единственный источник B₁₂.",
+    "Не исключать жиры полностью: растительные масла, орехи или жирная рыба необходимы для усвоения жирорастворимых витаминов.",
+    "Питание должно быть регулярным, с обязательным завтраком.",
+    "В осенне-зимний сезон — после врачебной консультации — возможен приём поливитаминных комплексов для подростков при строгом соблюдении дозировок.",
+  ];
+
+  return (
+    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
+      <div className="w-full max-w-2xl flex flex-col gap-6">
+
+        <div
+          className="text-center opacity-0 animate-slide-down"
+          style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
+        >
+          <span className="font-body text-[10px] tracking-[0.35em] uppercase text-[var(--gold)]">Слайд 09</span>
+          <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-light text-[var(--ink)] mt-1">
+            Рекомендации для подростков
+          </h2>
+        </div>
+
+        <div className="flex flex-col gap-0">
+          {tips.map((tip, i) => (
+            <div
+              key={i}
+              className="flex gap-5 items-start py-3.5 border-t border-[var(--line)] opacity-0 animate-slide-left"
+              style={{ animationDelay: `${0.15 + i * 0.08}s`, animationFillMode: "forwards" }}
+            >
+              <span className="font-display text-lg font-light text-[var(--gold)] shrink-0 w-5 leading-none pt-0.5">
+                {i + 1}.
+              </span>
+              <p className="font-body text-sm font-light text-[var(--muted)] leading-relaxed">{tip}</p>
+            </div>
+          ))}
+          <div className="border-t border-[var(--line)]" />
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function SlideConclusion({ animKey }: { animKey: AnimKey }) {
+  return (
+    <div key={animKey} className="flex items-center justify-center h-full px-8 md:px-16">
+      <div className="w-full max-w-2xl flex flex-col gap-8 text-center">
+
+        <div
+          className="opacity-0 animate-slide-down"
+          style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
+        >
+          <span className="font-body text-[10px] tracking-[0.35em] uppercase text-[var(--gold)]">Слайд 10</span>
+          <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-light text-[var(--ink)] mt-1">
+            Заключение
+          </h2>
+        </div>
+
+        <div className="w-12 h-px bg-[var(--gold)] mx-auto opacity-0 animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }} />
+
+        <div
+          className="opacity-0 animate-slide-up"
+          style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
+        >
+          <p className="font-body text-sm font-light text-[var(--muted)] leading-relaxed">
+            Витамины — незаменимые участники всех обменных процессов. Они не являются источниками энергии или пластическим материалом, однако без них невозможны извлечение энергии из пищи, рост, развитие, функционирование нервной системы и иммунная защита.
+          </p>
+        </div>
+
+        <div
+          className="opacity-0 animate-slide-up"
+          style={{ animationDelay: "0.38s", animationFillMode: "forwards" }}
+        >
+          <p className="font-display text-[clamp(1.1rem,2.5vw,1.6rem)] font-light text-[var(--ink)] leading-snug italic">
+            «Наиболее надёжный путь — разнообразное и сбалансированное питание. Особое значение это приобретает в подростковом возрасте, когда закладывается фундамент здоровья на всю жизнь.»
+          </p>
+        </div>
+
+        <div className="w-12 h-px bg-[var(--line)] mx-auto opacity-0 animate-fade-in" style={{ animationDelay: "0.5s", animationFillMode: "forwards" }} />
+
+        <p
+          className="font-body text-xs text-[var(--muted)] opacity-0 animate-fade-in"
+          style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}
+        >
+          Подготовила: Павлова Варвара, 8 класс
+        </p>
+
+      </div>
+    </div>
+  );
+}
+
 export default function Index() {
   const { current, key, go, prev, next } = useSlide();
 
@@ -565,6 +661,10 @@ export default function Index() {
         return <SlideStress animKey={key} />;
       case 7:
         return <SlidePsychology animKey={key} />;
+      case 8:
+        return <SlideTips animKey={key} />;
+      case 9:
+        return <SlideConclusion animKey={key} />;
       default:
         return null;
     }
