@@ -212,7 +212,6 @@ function SlideSources({ animKey }: { animKey: AnimKey }) {
             <thead>
               <tr className="bg-[var(--ink)] text-white">
                 <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase w-20">Витамин</th>
-                <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase w-40">Название</th>
                 <th className="px-5 py-3 text-left text-[10px] font-medium tracking-[0.2em] uppercase">Где присутствует</th>
               </tr>
             </thead>
@@ -224,7 +223,6 @@ function SlideSources({ animKey }: { animKey: AnimKey }) {
                   style={{ animationDelay: `${0.2 + i * 0.07}s`, animationFillMode: "forwards" }}
                 >
                   <td className="px-5 py-3 font-display text-2xl font-light text-[var(--gold)]">{row.vitamin}</td>
-                  <td className="px-5 py-3 font-body text-xs font-medium text-[var(--ink)]">{row.name}</td>
                   <td className="px-5 py-3 font-body text-xs font-light text-[var(--muted)] leading-relaxed">{row.sources}</td>
                 </tr>
               ))}
